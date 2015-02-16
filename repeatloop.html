@@ -1,0 +1,75 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="jquery-1.10.2.min.js"></script>
+        <script type="text/javascript">
+        function setCellColour(msgCell, msgColour) {
+                //document.getElementById(msgCell).bgColor= msgColour;
+		$.get("sendNote.php?note=" + msgColour);
+                }
+        function clearCellColour(msgCell) {
+
+                //document.getElementById(msgCell).bgColor= "#333333";
+                }
+        var sustain = 800;
+        var cells = new Array("r2c2", "r3c3", "r3c1", "r1c4", "r4c2");
+        var colours = new Array("Red", "Orange", "Purple", "Yellow", "White");
+        var t;
+
+        //var teams =  [{"name":"Team 1", "msg":"Orange, Purple, White, Yellow, Red", "reply":"Purple, Yellow, White, Red, Orange"}];
+        //var msgToSend = new Array(teams[0].msg);
+        var rTimes = 10;
+        function welcomeAliens(count, reset) {
+        if (count > 0) {
+                clearCellColour(cells[count - 1]);
+        }
+        if (reset === true) {
+                $.get("http://localhost/ce3v1_windows/sendNote.php?note=Stop");
+                clearCellColour(cells[4]);
+                clearInterval(t);
+                if (rTimes <=0){
+                    clearInterval(repeatingWelcome);
+                } else {
+                    rTimes--;
+                }
+                $("#instrument").fadeOut("slow");
+                //readyToCommunicate();
+        } else {
+                        setCellColour(cells[count], colours[count]);
+                        if (count === 4) {
+                        count = 0;
+                        reset = true;
+                        } else {
+                        count++;
+                        reset = false;
+
+                        if (count === 3) {
+                                        sustain = 1.025 * sustain;
+                                }
+                        if (count === 4) {
+                                        sustain = sustain * 2;
+                                }
+                        }
+                                t=setTimeout("welcomeAliens(" + count + ", " + reset + ")",sustain);
+                }
+        }
+        var repeatingWelcome;
+           t=setTimeout("welcomeAliens(0, false)",1200); 
+            repeatingWelcome = setInterval(function(){welcomeAliens(0, false);},1000 * 60 * 10);
+        
+        
+        
+           // 
+          
+         </script>       
+    </head>
+    <body>
+        <div>TODO write content</div>
+    </body>
+</html>

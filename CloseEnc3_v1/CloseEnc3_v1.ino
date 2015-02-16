@@ -23,20 +23,19 @@
     
      if (usbnumber > 0) {
          switch(usbnumber){
-                 case 49:  setColor(255, 0, 0); //red - G
+                 case 49:  setColor(255, 0, 0); //red - D
                            tone(8,293);
                    break;
-                 case 50:  setColor(255, 30, 0);//Orange - A
+                 case 50:  setColor(255, 30, 0);//Orange - E
                            tone(8,329);
                    break;
-                 case 51:  setColor(255, 0, 50); //Purple - F
-                           tone(8,130.81);
+                 case 51:  setColor(255, 0, 80); //Purple - C
+                           tone(8,261);
                    break;
-                 case 52:  setColor(255, 90, 0); //Yellow - F an octave lower
+                 case 52:  setColor(255, 90, 0); //Yellow - C an octave lower
                            tone(8,130);
                    break;
-                 case 53:  setColor(255, 255, 255); // White - C
-                           tone(8,196);
+                 case 53:  setColor(255, 255, 255); // White - G                           tone(8,196);
                    break;
                  case 54:  setColor(0, 0, 0); // off
                            noTone(8);

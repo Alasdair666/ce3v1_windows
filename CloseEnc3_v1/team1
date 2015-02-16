@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<head>
+<script src="jquery-1.10.2.min.js"></script>
+<script>
+function mynote(note)
+{
+alert("gotfunction");
+var url = "http://192.168.137.1/ce3v1_windows/sendnote.php?note=" + note;
+$.get(url);
+}
+
+
+
+</script>
+<style>
+</style>
+</head>
+<body>
+<button type="button" onmousedown="mynote("Red");">Red</button>
+<button type="button" onmousedown="mynote("Yellow");">Yellow</button>
+<button type="button" onmousedown="mynote("Orange");">Orange</button>
+<button type="button" onmousedown="mynote("Purple");">Purple</button>
+<button type="button" onmousedown="mynote("White");">White</button>
+<button type="button" onmousedown="mynote("Stop");">Stop</button> 
+</body>
+
+
+http://192.168.137.1/ce3v1_windows/sendnote.php?note=Red
+http://192.168.137.1/ce3v1_windows/sendnote.php?note=Yellow
+http://192.168.137.1/ce3v1_windows/sendnote.php?note=Orange
+http://192.168.137.1/ce3v1_windows/sendnote.php?note=Purple
+http://192.168.137.1/ce3v1_windows/sendnote.php?note=White
+http://192.168.137.1/ce3v1_windows/sendnote.php?note=Stop
+
+
